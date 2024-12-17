@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lets Play</title>
+    <link rel="stylesheet" href="/style/Game.css">
+    
+</head>
+<body>
+   <header  id="one">
+        <h1>A Small Gaming Task</h1>
+    </header> 
+
+    <h2>Student Information</h2>
+    <p><strong>Name:</strong> <span id="studentName"></span></p>
+    <p><strong>Student ID:</strong> <span id="studentID"></span></p>
+
+
+    <div id="game">
+        <p>Let's Play!</p>
+        <p>Choose your move:</p>
+        <button onclick="playGame('rock')">Rock</button>
+        <button onclick="playGame('paper')">Paper</button>
+        <button onclick="playGame('scissors')">Scissors</button>
+        <div id="result"></div>
+        <div id="score">
+            <p>User Score: <span id="userScore">0</span>  ||
+            Computer Score: <span id="computerScore">0</span></p>
+        </div>
+
+    </div>
+    <script>
+
+     // Get the student name and ID from the URL parameters
+     const params = new URLSearchParams(window.location.search);
+        const studentName = params.get('studentName');
+        const studentID = params.get('studentID');
+
+        // Display the student name and ID on the page
+        document.getElementById('studentName').textContent = studentName;
+        document.getElementById('studentID').textContent = studentID;
+
+
+
+        
+let userScore = 0;
+let computerScore = 0;
+
+// Game logic for Rock, Paper, Scissors
+function playGame(userChoice) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    let result = '';
+
+    if (userChoice === computerChoice) {
+        result = 'It\'s a tie!';
+    } else if ((userChoice === 'rock' && computerChoice === 'scissors') ||
+               (userChoice === 'paper' && computerChoice === 'rock') ||
+               (userChoice === 'scissors' && computerChoice === 'paper')) {
+        result = 'You win!';
+        userScore++;
+    } else {
+        result = 'You lose!';
+        computerScore++;
+    }
+
+    document.getElementById('result').innerText = `You chose ${userChoice}, computer chose ${computerChoice}. ${result}`;
+    document.getElementById('userScore').innerText = userScore;
+    document.getElementById('computerScore').innerText = computerScore;
+
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+body {
+    font-family: Arial, sans-serif;
+  }
+
+h1 {
+    text-align: center;
+  }
+
+#one{
+    margin-top: 10%;
+    margin-left:40%;
+}
+
+
+#two,#three{
+
+    margin-top: 5%;
+    margin-left:40%;
+    visibility: hidden;
+
+}

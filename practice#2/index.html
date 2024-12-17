@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style/index.css">
+    
+    <title>Document</title>
+</head>
+<body>
+ 
+<h1>Welcome to Another Task</h1>
+
+<div id="one">
+     <button onclick="showFactorial()">Area of Circle</button><br><br>
+    <button onclick="showCircle()" >Factorial</button>
+</div>
+
+<div id="two">
+
+    <label>Enter Number</label>
+    <input type="number" id="input1"><br><br>
+    <button onclick="calculateFactorial()">Calculate</button><br><br>
+    <label>Factorial is:</label>
+      <p  id="factorialResult">  </p> 
+</div>
+    
+<div id="three">
+
+    <label>Enter Radius</label>
+    <input type="number" id="input2"><br><br>
+    <button  onclick="calculateArea()">Calculate</button><br><br>
+    <label>Area  is:</label>
+      <p id="areaResult" >  </p> 
+</div>
+    
+<script>
+    function showFactorial() {
+        document.getElementById('two').style.visibility = 'visible';
+        document.getElementById('three').style.visibility = 'hidden';
+    }
+
+    function showCircle() {
+        document.getElementById('two').style.visibility = 'hidden';
+        document.getElementById('three').style.visibility = 'visible';
+    }
+
+    function calculateFactorial() {
+        let number = parseInt(document.getElementById('input1').value);
+        let result = 1;
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+        document.getElementById('factorialResult').innerText = result;
+    }
+
+    function calculateArea() {
+        let radius = parseFloat(document.getElementById('input2').value);
+        let area = Math.PI * Math.pow(radius, 2);
+        document.getElementById('areaResult').innerText = area.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

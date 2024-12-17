@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style/Arithmetic Calculator.css">
+   
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+    
+  
+<script>
+
+function addition() {
+    let x=document.getElementById("input1").value;
+  
+    let y=document.getElementByID("input2").value;
+
+    let result=parseInt(x)+parseInt(y);;
+
+    document.getElementById("result").innerHTML=result;
+
+}
+
+
+
+</script>
+
+
+
+   
+   
+    <h1>Arithmetic Calculator</h1>
+     <form>
+        <label>First number</label>
+       <input type="number" name="num1" id="input1" placeholder="Enter a number" required><br><br>
+       <label>Second number</label>
+       <input type="number" name="num2" id="input1"placeholder="Enter a number" required><br><br>
+       <label>Result</label>
+        <p id="result"></p>
+    </form>
+
+      <button onclick="addition()">+</button> 
+      <button class="go">/</button> 
+      <button class="go">-</button> 
+      <button class="go">*</button> 
+      <button class="go">--</button> 
+      <button class="go">**</button> 
+      <button class="go">++</button> 
+      <button class="go">%</button> 
+       
+      
+</body>
+</html>
+
+
+

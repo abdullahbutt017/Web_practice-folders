@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        /* Basic styling for better visibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #one, #two, #three {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        #two, #three {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ 
+<h1>Welcome to Another Task</h1>
+
+<div id="one">
+    <button onclick="showCircle()">Area of Circle</button><br><br>
+    <button onclick="showFactorial()">Factorial</button>
+</div>
+
+<div id="two">
+    <label>Enter Number</label>
+    <input type="number" id="input1"><br><br>
+    <button onclick="calculateFactorial()">Calculate</button><br><br>
+    <label>Factorial is:</label>
+    <p id="factorialResult"></p> 
+</div>
+    
+<div id="three">
+    <label>Enter Radius</label>
+    <input type="number" id="input2"><br><br>
+    <button onclick="calculateArea()">Calculate</button><br><br>
+    <label>Area is:</label>
+    <p id="areaResult"></p> 
+</div>
+    
+<script>
+    function showFactorial() {
+        document.getElementById('two').style.display = 'block';
+        document.getElementById('three').style.display = 'none';
+    }
+
+    function showCircle() {
+        document.getElementById('two').style.display = 'none';
+        document.getElementById('three').style.display = 'block';
+    }
+
+    function calculateFactorial() {
+        let number = parseInt(document.getElementById('input1').value);
+        if (isNaN(number) || number < 0) {
+            document.getElementById('factorialResult').innerText = "Please enter a valid non-negative integer.";
+            return;
+        }
+        let result = 1;
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+        document.getElementById('factorialResult').innerText = result;
+    }
+
+    function calculateArea() {
+        let radius = parseFloat(document.getElementById('input2').value);
+        if (isNaN(radius) || radius < 0) {
+            document.getElementById('areaResult').innerText = "Please enter a valid non-negative number.";
+            return;
+        }
+        let area = Math.PI * Math.pow(radius, 2);
+        document.getElementById('areaResult').innerText = area.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
